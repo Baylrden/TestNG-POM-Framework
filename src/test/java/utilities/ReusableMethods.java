@@ -58,14 +58,14 @@ public class ReusableMethods {
 
     }
 
-    public static void tumSayfaSreenshot(WebDriver driver,String resimAdi)  {
+    public static void PageSreenshot(WebDriver driver,String ssName)  {
         // 1- bir TakesScreenShot objesi olusturun ve deger olarak driver'i atayin
 
         TakesScreenshot tss = (TakesScreenshot) driver;
 
         // 2- screenshot'i kaydedecegimiz bir dosya olusturalim
 
-        File tumSayfaScreenshot = new File("target/tumSayfaScreenshot/"+resimAdi+".jpeg");
+        File tumSayfaScreenshot = new File("target/tumSayfaScreenshot/"+ssName+".jpeg");
 
         // 3- tss objesini kullanarak screenshot alin ve bir File olarak kaydedin
 
@@ -81,7 +81,7 @@ public class ReusableMethods {
 
     }
 
-    public static void webelementScreenshot(WebElement webElement,String screenshotIsim){
+    public static void webElementScreenshot(WebElement webElement,String ssName){
         // 1- screenshot alacaginiz webelementi locate edip kaydedin
         // 2- screenshot'i kaydedecegimiz dosyayi olusturun
         //    screenshot ismini unique yapabilmek icin, timestamp ekleyelim
@@ -89,7 +89,7 @@ public class ReusableMethods {
         DateTimeFormatter zamanFormati = DateTimeFormatter.ofPattern("YYMMddHHmmss");
         String timeStamp = ldt.format(zamanFormati); // 240124190341
 
-        File webelementSS = new File("target/webelementScreenshots/"+screenshotIsim+timeStamp+".jpg");
+        File webelementSS = new File("target/webelementScreenshots/"+ssName+timeStamp+".jpg");
         // 3- webelementi kullanarak screeshot alin ve gecici dosyaya kaydedin
         File geciciScreenshot = webElement.getScreenshotAs(OutputType.FILE);
         // 4- gecici dosyayi asil dosyaya kopyalayalim
